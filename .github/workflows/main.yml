@@ -1,10 +1,13 @@
 name: Docker Image CI
 
 on:
+  #create:
+  #  tags:
+  #    - *
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
   #pull_request:
-    #branches: [ "main" ] 
+  #  branches: [ "*" ] 
 
 jobs:
 
@@ -37,4 +40,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:${ GITHUB_REF_NAME |
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:$GITHUB_REF_NAME
